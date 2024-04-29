@@ -1,7 +1,5 @@
-@extends('layouts.app') @section('title', 'Home')
-
-@section('content')
-
+<x-app-layout>
+    @section('title', 'Tienda')
     <div class="main-error-page">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="auto" height="290"
             viewBox="0 0 470 290">
@@ -141,14 +139,16 @@
                                     <use xlink:href="#prefix__y" />
                                 </mask>
                                 <path class="olho-esq" fill="#633"
-                                    d="M-4.153 -6.995L12.298 -3.797 9.107 12.627 -7.346 9.429z" mask="url(#prefix__z)" />
+                                    d="M-4.153 -6.995L12.298 -3.797 9.107 12.627 -7.346 9.429z"
+                                    mask="url(#prefix__z)" />
                             </g>
                             <g transform="translate(-448 -158) translate(448 157) translate(361.087 197.242)">
                                 <mask id="prefix__B" fill="#fff">
                                     <use xlink:href="#prefix__A" />
                                 </mask>
                                 <path class="olho-dir" fill="#633"
-                                    d="M-4.248 -6.976L12.203 -3.778 9.011 12.645 -7.441 9.448z" mask="url(#prefix__B)" />
+                                    d="M-4.248 -6.976L12.203 -3.778 9.011 12.645 -7.441 9.448z"
+                                    mask="url(#prefix__B)" />
                             </g>
                             <g transform="translate(-448 -158) translate(448 157) translate(350.495 206.834)">
                                 <mask id="prefix__D" fill="#fff">
@@ -176,15 +176,15 @@
                         <mask id="prefix__F" fill="#fff">
                             <use xlink:href="#prefix__E" />
                         </mask>
-                        <path class="tomada" fill="#2D3F5B" d="M10.383 -14.007L34.351 9.962 12.875 31.438 -11.095 7.469z"
-                            mask="url(#prefix__F)" />
+                        <path class="tomada" fill="#2D3F5B"
+                            d="M10.383 -14.007L34.351 9.962 12.875 31.438 -11.095 7.469z" mask="url(#prefix__F)" />
                     </g>
                     <g transform="translate(-448 -158) translate(448 157) translate(246.184 208.033)">
                         <mask id="prefix__H" fill="#fff">
                             <use xlink:href="#prefix__G" />
                         </mask>
-                        <path class="tomada" fill="#2D3F5B" d="M10.807 -12.875L32.391 8.709 10.793 30.309 -10.793 8.724z"
-                            mask="url(#prefix__H)" />
+                        <path class="tomada" fill="#2D3F5B"
+                            d="M10.807 -12.875L32.391 8.709 10.793 30.309 -10.793 8.724z" mask="url(#prefix__H)" />
                     </g>
                 </g>
             </g>
@@ -199,4 +199,4 @@
 
 
     </div>
-@endsection
+</x-app-layout>
