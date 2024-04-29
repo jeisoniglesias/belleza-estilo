@@ -6,8 +6,13 @@
     "isEntry": true
   },
   "resources/scss/app.scss": {
-    "file": "assets/app-9kx3olKa.css",
+    "file": "assets/app-DLzE7trD.css",
     "src": "resources/scss/app.scss",
+    "isEntry": true
+  },
+  "resources/scss/auth.scss": {
+    "file": "assets/auth-CXcWruKU.css",
+    "src": "resources/scss/auth.scss",
     "isEntry": true
   }
 }

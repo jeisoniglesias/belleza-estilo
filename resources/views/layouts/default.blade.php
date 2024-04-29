@@ -13,29 +13,23 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
-    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+    @vite(['resources/scss/auth.scss', 'resources/js/app.js'])
 </head>
 
 <body class="bg-pink-100">
-    <div>
-        @include('components.navigation')
-        <!-- Page Heading -->
-        @if (isset($header))
-            <header class=" py-5 bg-pink-400">
-                <div class="container px-4 px-lg-5 my-5">
-                    <div class="text-center text-white">
-                        {{ $header }}
-                    </div>
+    <div class="m-0 vh-100 row justify-content-center align-items-center">
+        <div class="col-auto">
+            <div class="bodyAuth d-md-flex align-items-center justify-content-center">
+                <div class="box-1 mt-md-0 mt-5">
+                    {{ $element_left }}
                 </div>
-            </header>
-        @endif
-
-        <!-- Page Content -->
-        <main class="py-5">
-            {{ $slot }}
-        </main>
+                <div class=" box-1 mt-md-0 mt-5">
+                    {{ $element_right }}
+                </div>
+            </div>
+        </div>
     </div>
-    @include('ui.footer')
+
 </body>
 
 </html>
