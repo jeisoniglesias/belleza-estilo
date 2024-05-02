@@ -27,13 +27,14 @@ class LoginUserFormRequest extends FormRequest
             'password' => 'required|min:8',
         ];
     }
+
     public function messages(): array
     {
         return [
             'email.required' => "El campo email es requerido",
             'email.email' => "El campo email debe ser un correo electronico",
-            'email.unique' => 'Correo ya se encuentra registrado',
-            'password.exists' => 'El campo contraseña es requerida',
+            'email.exist' => 'Correo ya se encuentra registrado',
+            'password.required' => 'El campo contraseña es requerida',
             'password.min' => 'Debe tener un minimo de :min parametros'
         ];
     }
