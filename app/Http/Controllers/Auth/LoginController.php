@@ -3,19 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginUserFormRequest;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
-    public function login(Request $request)
+    public function login(LoginUserFormRequest $request)
     {
-        $credentials = $request->only('email', 'password');
-
-        if (auth()->attempt($credentials)) {
-            return response()->json(['message' => 'Login successful'], 200);
-        }
-
-        return response()->json(['message' => 'Invalid credentials'], 401);
+        return 'para login';
     }
     function index(Request $request)
     {

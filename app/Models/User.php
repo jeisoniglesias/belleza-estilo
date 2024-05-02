@@ -22,7 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+    //controller=>orm que hace la intancia con la entidad llamada modelo ->fid..->all
     /**
      * The attributes that should be hidden for serialization.
      *

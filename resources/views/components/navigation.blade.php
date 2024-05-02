@@ -33,6 +33,21 @@
                       <span class="badge  bg-light text-dark ms-1 rounded-pill">0</span>
                   </button>
               </form>
+              <div class="m-2 pl-1">
+
+
+
+                  @auth
+                      <div class="py-2">
+                          usuario
+                      </div>
+                  @else
+                      <div class="btn-group" role="group" aria-label="Not found Auth">
+                          <a type="button" class="btn btn-warning" href="{{ route('login.index') }}">Login</a>
+                          <a type="button" class="btn btn-success" href="{{ route('register.index') }}">Registro</a>
+                      </div>
+                  @endauth
+              </div>
           </div>
       </div>
   </nav>
