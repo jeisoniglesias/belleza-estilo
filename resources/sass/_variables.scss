@@ -2,6 +2,32 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: "Nunito", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+$pink-colors: (
+    "pink-50": #fef1f7,
+    "pink-100": #fee5f0,
+    "pink-200": #fecce3,
+    "pink-300": #ffa2cb,
+    "pink-400": #fe68a7,
+    "pink-500": #f83c86,
+    "pink-600": #e81a61,
+    "pink-700": #ca0c48,
+    "pink-800": #a70d3b,
+    "pink-900": #8b1034,
+    "pink-950": #55021b,
+);
+
+$utilities: map-merge(
+    $utilities,
+    (
+        "background-color": (
+            property: background-color,
+            class: bg,
+            values: $pink-colors,
+        ),
+    )
+);
+
+@import "~bootstrap/scss/utilities/api";
