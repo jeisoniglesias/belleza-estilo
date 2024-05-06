@@ -2,7 +2,11 @@
     <x-slot name="element_left">
         <div class="d-flex flex-column h-100 m-2 p-3">
             <div class="mt-5">
-                <p class="mb-1 h-1">CREAR CUENTA</p>
+                {{--<p class="mb-1 h-1">CREAR CUENTA</p>--}}
+                <div style="display: flex; justify-content: center; width: 100%;">
+                    <p class="mb-1 h-1">CREAR CUENTA</p>
+                </div>
+
                 <p class="text-muted mb-2">Comparte tus pensamientos con el mundo hoy.</p>
 
                 @if ($errors->any())
@@ -14,11 +18,9 @@
                         </ul>
                     </div>
                 @endif
-
-                <form action="{{ route('register') }}" method="POST">
-                    @csrf
+    
                     <div class="mb-3 row">
-                        <label for="name" class="col-sm-2 col-form-label">name</label>
+                        <label for="name" class="col-sm-2 col-form-label">Nombre</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="name"name="name"
                                 placeholder="Pepito Perez" value="{{ old('name') }}">
@@ -27,6 +29,7 @@
                             @enderror
                         </div>
                     </div>
+
                     <div class="mb-3 row">
                         <label for="email" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
@@ -44,9 +47,17 @@
                                 placeholder="*********" value="{{ old('password') }}">
                         </div>
                     </div>
-                    <div class="col-auto">
-                        <button type="submit" class="btn btn-outline-primary mb-3">Registrarse</button>
+                    <div class="col-auto d-flex justify-content-center align-items-center">
+                        <button type="button" class="btn" style="background-color: #FFC0CB; color: #FF69B4; border: none;">Registrarse</button>
+
                     </div>
+                    
+                    {{--<div class="col-auto">
+                        <button type="submit" class="btn btn-outline-primary mb-3">Registrarse</button>
+
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Registrarse</button>
+                    </div>--}}
+                    
                 </form>
             </div>
         </div>
