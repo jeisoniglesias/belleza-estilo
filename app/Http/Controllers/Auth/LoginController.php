@@ -4,23 +4,23 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginUserFormRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
     public function login(LoginUserFormRequest $request)
     {
-        $data = $this->createSesion($request);
-        // create auth with passport
-        $request->session()->put('token', $data->access_token);
-        $request->session()->put('token_type', $data->token_type);
-        $request->session()->put('expires_at', now()->addSeconds($data->expires_in));
 
-        return response()->json($data);
-        return 'para login';
+        $data = $this->createSesion($request);
+        //$request->session()->flash('success', "Welcome, " . Auth::user()->name . "!");
+
+        //return redirect()->intended('/');
+        return redirect()->route('home');
+
+        //return redirect()->to(url('/'));
     }
+
     // method request oauth/token
     function createSesion(LoginUserFormRequest $request)
     {
@@ -36,9 +36,10 @@ class LoginController extends Controller
         $request = Request::create('/oauth/token', 'POST', $data);
         $response = app()->handle($request);
         $data = json_decode($response->getContent());
+
         if (isset($data->error)) {
             throw ValidationException::withMessages([
-                'email' => 'The provided credentials are incorrect.',
+                'email' => 'Las credenciales proporcionadas son incorrectas.',
             ]);
         }
         return $data;

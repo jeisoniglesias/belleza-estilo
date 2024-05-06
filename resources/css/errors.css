@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .main-error-page {
-    min-height: 600px;
+    min-height: calc(100vh - 20%);
     margin: 0px auto;
     width: auto;
-    max-width: 560px;
+    max-width: calc(100vw - 30px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,13 +36,8 @@
     color: #4b4b62;
     margin-bottom: 24px;
 }
-svg {
+.main-error-page > svg {
     margin-bottom: 16px;
-}
-
-.full-torradeira {
-}
-.torradeira {
 }
 
 .pao-atras {

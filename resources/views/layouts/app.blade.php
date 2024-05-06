@@ -21,17 +21,19 @@
         @include('components.navigation')
         <!-- Page Heading -->
         @if (isset($header))
-            <header class=" py-5 bg-pink-400">
-                <div class="container px-4 px-lg-5 my-5">
-                    <div class="text-center text-white">
-                        {{ $header }}
-                    </div>
+        <header class=" py-5 bg-pink-400">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    {{ $header }}
                 </div>
-            </header>
+            </div>
+        </header>
         @endif
 
         <!-- Page Content -->
         <main class="py-5">
+
+
             {{ $slot }}
         </main>
     </div>

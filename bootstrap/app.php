@@ -15,14 +15,16 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions) {
-
         $exceptions->renderable(function (QueryException $exception) {
+            $error_title = '';
+
             $message = $exception->getMessage();
             if ($previus = $exception->getPrevious()) {
                 $message = $previus->errorInfo[2];
+                $error_title = 'Error en la base de datos';
             }
 
             //return response()->json(['error' => $exception->getMessage()], 500);
-            return response()->view('errors.default', ['error' => $message], 500);
+            return response()->view('errors.default', ['error' => $message, 'error_title' => $error_title], 500);
         });
     })->create();
