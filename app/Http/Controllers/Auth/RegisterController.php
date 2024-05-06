@@ -18,6 +18,8 @@ class RegisterController extends Controller
     }
     function register(RegisterUserFormRequest $request)
     {
+        dd($request->getBaseUrl());
+
         $request['password'] = Hash::make($request['password']);
         $user = User::create($request->all());
         // TODO: alert succesfull register
