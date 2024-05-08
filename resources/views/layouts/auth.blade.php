@@ -13,10 +13,12 @@
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-
+<!--
+    TODO: Add custom styles layout card for login, register, confirm password, reset password and verify email 
+-->
 </head>
 <body>
-    <div class=""id="app">
+    <div class="" id="app">
         <main class="py-4">
             @yield('content')
         </main>
