@@ -4,11 +4,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $categorias =['all','categoria1','categoria2','categoria3','categoria4','categoria5'];
-$name="sele";
+    $categorias =['Todo','Mujer','Hombre','Niños','Niñas','Ofertas'];
 
-    //return view('welcome',['categorias'=>$categorias]);
-    return view('welcome',compact('categorias','name'));
+    return view('welcome',['categorias'=>$categorias]);
+
 });
 
 Auth::routes();

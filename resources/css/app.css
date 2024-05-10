@@ -121,6 +121,7 @@
 }
 
 @media (max-width: 767.5px) {
+
     .navbar-nav .nav-link.active,
     .navbar-nav .nav-link:hover {
         background-color: #b71c1c;

@@ -38,8 +38,13 @@
     "isEntry": true
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-DrlGRH7t.css",
+    "file": "assets/app-CbroW-GA.css",
     "src": "resources/sass/app.scss",
+    "isEntry": true
+  },
+  "resources/sass/auth.scss": {
+    "file": "assets/auth-DSboSFt9.css",
+    "src": "resources/sass/auth.scss",
     "isEntry": true
   }
 }

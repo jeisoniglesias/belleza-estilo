@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white">
         <div class="container-fluid p-0">
             <a class="navbar-brand text-uppercase fw-800" href="#"
-                ><span class="border-red pe-2">New</span>Product</a
+                ><span class="border-red pe-2 ">New</span>Product</a
             >
             <button
                 class="navbar-toggler"
@@ -18,11 +18,11 @@
                 <span class="fas fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="myNav">
-                <div class="navbar-nav ms-auto">
+                <div class="navbar-nav ms-auto ">
                     @foreach ($categorias as $index => $categoria)
                         <a class="{{ $index == 0? 'active nav-link' : 'nav-link' }}" href="#">{{$categoria}}</a>
                     @endforeach 
-                  {{$name}}
+                  
                 </div>
             </div>
         </div>
