@@ -1,7 +1,6 @@
 // Fonts
 @import url("https://fonts.bunny.net/css?family=Nunito");
 
-// styles
 @import ".././css/app";
 @import "@fortawesome/fontawesome-free/css/all.css";
 
@@ -10,6 +9,11 @@
 //@import 'bootstrap/scss/bootstrap';
 // Variables
 @import "variables";
+@import "./layouts/theme-variables";
+// styles
+@import "./layouts/sidebar";
+@import "./layouts/header";
+@import "./layouts/layouts";
 
 // Custom/error
 @import "custom/error.default";
