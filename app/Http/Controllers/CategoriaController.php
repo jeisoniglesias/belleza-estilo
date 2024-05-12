@@ -5,15 +5,27 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Http\Requests\StoreCategoriaRequest;
 use App\Http\Requests\UpdateCategoriaRequest;
+use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
+
+    protected $categoriaModel;
+
+    public function __construct(Categoria $categoriaModel)
+    {
+        $this->categoriaModel = $categoriaModel;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('categorias.index');
+        //select * from categorias;
+        $categorias = $this->categoriaModel->all();
+
+        //return view('categorias.index', ["categoria" => $categoria]);
+        return view('categorias.index', compact("categorias"));
     }
 
     /**
@@ -25,11 +37,12 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage.StoreCategoriaRequest
      */
-    public function store(StoreCategoriaRequest $request)
+    public function store(Request $request)
     {
         //
+        dd($request);
     }
 
     /**

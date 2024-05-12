@@ -24,7 +24,9 @@
         <aside class="left-sidebar">
             <h1>navegacion</h1>
         </aside>
-        <main class="body-wrapper py-4">
+        <main class="body-wrapper">
+            <!--  Header Start -->
+
             @yield('content')
         </main>
     </div>
