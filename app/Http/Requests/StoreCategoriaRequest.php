@@ -11,7 +11,7 @@ class StoreCategoriaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,24 @@ class StoreCategoriaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nombre' => 'required|string|min:4|unique:categorias,nombre',
+            'descripcion' => 'nullable|string|max:255',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'nombre.required' => 'El nombre es requerido',
+            'nombre.string' => 'El nombre debe ser un texto',
+            'nombre.min' => 'El nombre  debe tener almenos :min caracteres',
+            'descripcion.string' => 'La descripción debe ser un texto',
+            'descripcion.max' => 'La descripción no debe exceder los 255 caracteres',
         ];
     }
 }

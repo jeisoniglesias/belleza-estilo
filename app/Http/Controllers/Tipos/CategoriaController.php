@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Tipos\Categoria;
 use App\Http\Requests\StoreCategoriaRequest;
 use App\Http\Requests\UpdateCategoriaRequest;
+use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
@@ -32,7 +33,10 @@ class CategoriaController extends Controller
      */
     public function store(StoreCategoriaRequest $request)
     {
-        //
+        // create a new categoria
+        Categoria::create($request->validated());
+        // redirect to the index view
+        return redirect()->route('categorias.index');
     }
 
     /**
