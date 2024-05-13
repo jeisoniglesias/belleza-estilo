@@ -3,20 +3,23 @@
 
     <div class="list-group rounded-0">
 
-        <a href="{{ route('home') }}" class="list-group-item list-group-item-action  border-0 d-flex align-items-center {{Request::is('home') ? 'active':''}} ">
-            <span class="bi bi-border-all"></span>
-            <span class="ms-2">Dashboard</span>
-        </a>
-        <a href="{{ url('/') }}" class="list-group-item list-group-item-action  border-0 d-flex align-items-center
-        {{Request::is('/') ? 'active':''}}">
-            <span class="bi bi-border-all"></span>
-            <span class="ms-2">Tienda</span>
-        </a>
-        <a href="{{ route('categorias.index')}} " class="list-group-item list-group-item-action border-0 align-items-center {{Request::is('categorias') ? 'active':''}}">
+        <x-dashboard.sidebar-link :active="request()->routeIs('home')" :href="route('home')" :icon="'bi-house'">
+            Dashboard
+        </x-dashboard.sidebar-link>
+
+        <x-dashboard.sidebar-link :active="request()->routeIs('store')" :href="route('store')" :icon="'bi-shop'">
+            Tienda
+        </x-dashboard.sidebar-link>
+
+        <x-dashboard.sidebar-link :active="request()->routeIs('categorias.index')" :href="route('categorias.index')" :icon="'bi-bar-chart-steps'">
+            Categorias
+        </x-dashboard.sidebar-link>
+
+        <!--<a href="{{ route('categorias.index')}} " class="list-group-item list-group-item-action border-0 align-items-center {{Request::is('categorias') ? 'active':''}}">
             <span class="bi bi-box"></span>
             <span class="ms-2">Categorias</span>
         </a>
-        <!--
+        
             <a  class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#sale-collapse">
                 <div>
                     <span class="bi bi-cart-dash"></span>
