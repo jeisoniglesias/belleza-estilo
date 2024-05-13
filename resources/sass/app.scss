@@ -1,19 +1,16 @@
 // Fonts
 @import url("https://fonts.bunny.net/css?family=Nunito");
 
-@import ".././css/app";
-@import "@fortawesome/fontawesome-free/css/all.css";
+// Variables
+@import "variables";
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
-//@import 'bootstrap/scss/bootstrap';
-// Variables
-@import "variables";
-@import "./layouts/theme-variables";
-// styles
-@import "./layouts/sidebar";
-@import "./layouts/header";
-@import "./layouts/layouts";
+@import "~bootstrap-icons/font/bootstrap-icons.min";
+@import "@fortawesome/fontawesome-free/css/all.css";
 
-// Custom/error
-@import "custom/error.default";
+//D:\work\php\sele\application\node_modules\bootstrap-icons\font\bootstrap-icons.scss
+
+@import "../css/app";
+@import "../css/welcome";
+@import "../css/error";

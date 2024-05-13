@@ -1,13 +1,11 @@
 <?php
 
-use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\Tipos\CategoriaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $categorias = ['Todo', 'Mujer', 'Hombre', 'Niños', 'Niñas', 'Ofertas'];
-
-    return view('welcome', ['categorias' => $categorias]);
+    return view('welcome');
 });
 
 Auth::routes();
