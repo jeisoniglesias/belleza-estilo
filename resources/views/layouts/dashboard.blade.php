@@ -17,7 +17,8 @@
             <!-- top nav -->
 
             <!-- main content -->
-            <main class="container-fluid">
+            <main class="container-fluid pb-3">
+               
                 @yield('content')
             </main>
         </div>

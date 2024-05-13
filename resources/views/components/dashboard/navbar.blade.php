@@ -3,7 +3,7 @@
     <button class="btn py-0 d-lg-none" id="open-sidebar">
         <span class="bi bi-list text-primary h3"></span>
     </button>
-
+    <!--
     <div class="btn-group ms-auto">
         <button type="button" class="btn rounded" data-bs-toggle="dropdown" aria-expanded="true">
             {{ Auth::user()->name }}
@@ -18,7 +18,6 @@
                 </button>
             </li>
             <li>
-
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
                 </a>
@@ -29,4 +28,5 @@
 
         </ul>
     </div>
+-->
 </nav>

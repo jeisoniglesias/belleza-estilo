@@ -14,8 +14,23 @@
         <x-dashboard.sidebar-link :active="request()->routeIs('categorias.index')" :href="route('categorias.index')" :icon="'bi-bar-chart-steps'">
             Categorias
         </x-dashboard.sidebar-link>
+        <a href="# " class="list-group-item list-group-item-action  align-items-center border-bottom border-danger border-end-0 bg-transparent">
+            <span class=""> {{ Auth::user()->name }}</span>
+        </a>
 
-        <!--<a href="{{ route('categorias.index')}} " class="list-group-item list-group-item-action border-0 align-items-center {{Request::is('categorias') ? 'active':''}}">
+        <x-dashboard.sidebar-link :active="request()->routeIs('profile')" :href="route('profile')" :icon="'bi-bar-chart-steps'">
+            {{ __('Profile') }}
+
+        </x-dashboard.sidebar-link>
+        <x-dashboard.sidebar-link :active="request()->routeIs('logout')" :href="route('logout')" :icon="'bi-box-arrow-right'" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </x-dashboard.sidebar-link>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+
+        <!--
+        <a href="{{ route('categorias.index')}} " class="list-group-item list-group-item-action border-0 align-items-center {{Request::is('categorias') ? 'active':''}}">
             <span class="bi bi-box"></span>
             <span class="ms-2">Categorias</span>
         </a>

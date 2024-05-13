@@ -13,3 +13,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('categorias', CategoriaController::class)->middleware('auth');
+Route::get('profile', function () {
+    return view('auth.profile');
+})->middleware('auth')->name('profile');
