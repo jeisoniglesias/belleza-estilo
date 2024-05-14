@@ -11,7 +11,75 @@ body {
 .container {
     margin: 30px auto;
 }
+#logo {
+    max-width: 100%;
+    height: auto;
+    animation: scaleAnimation 2s infinite;
+    transition: transform 0.3s ease;
+    /* Add transition for smooth scaling */
+}
 
+/* Define the keyframes */
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Hover styles */
+#logo-container:hover #logo {
+    transform: scale(1.1);
+    /* Scale up the logo on hover */
+}
+
+/* Responsive styles */
+/* ... (same as previous responsive styles) ... */
+@media (max-width: 576px) {
+    #logo {
+        max-width: 80px;
+        /* Adjust the maximum width for small screens */
+        animation: none;
+        /* Disable the animation on small screens */
+    }
+}
+
+/* Styles for medium screens */
+@media (min-width: 577px) and (max-width: 768px) {
+    #logo {
+        max-width: 150px;
+        /* Adjust the maximum width for medium screens */
+    }
+}
+
+/* Styles for large screens */
+@media (min-width: 769px) {
+    #logo {
+        max-width: 200px;
+        /* Adjust the maximum width for large screens */
+    }
+}
+
+.logo-home {
+    display: grid;
+    place-items: center;
+}
+
+.nav-user {
+    display: grid;
+    place-items: center;
+}
+.nav-user > a {
+    width: 100%;
+    height: auto;
+}
 .navbar-nav .nav-link {
     color: #000 !important;
     padding: 0.5rem 0rem !important;
@@ -26,11 +94,11 @@ body {
 
 .navbar-nav .nav-link.active,
 .border-red {
-    border-bottom: 3px solid #b71c1c;
+    border-bottom: 3px solid var(--bs-pink);
 }
 
 .navbar-nav .nav-link:hover {
-    border-bottom: 3px solid #b71c1c;
+    border-bottom: 3px solid var(--bs-pink);
 }
 
 .container .product-item {
@@ -69,7 +137,7 @@ body {
 }
 
 .container .product-item .product .icons .icon:hover {
-    background-color: #b71c1c;
+    background-color: var(--bs-pink);
     color: #fff;
 }
 
@@ -137,7 +205,7 @@ body {
 @media (max-width: 767.5px) {
     .navbar-nav .nav-link.active,
     .navbar-nav .nav-link:hover {
-        background-color: #b71c1c;
+        background-color: var(--bs-pink);
         color: #fff !important;
     }
 

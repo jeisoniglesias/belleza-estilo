@@ -1,7 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .nav-link-home {
+        text-decoration: none!important;
+        color: black;
+    }
+
+    .nav-link-home.active {
+        border-bottom: 2px solid red;
+    }
+</style>
 <div class="row">
+    <div class="container my-0">
+        <ul class="nav justify-content-end ">
+            <!--TODO: add event button for filter method and update var products -->
+            <li class="nav-item nav-item-home " >
+                
+                <a class="nav-link nav-link-home active" aria-current="page" href="#">Active</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link nav-link-home" href="#">Link</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link nav-link-home" href="#">Link</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link nav-link-home disabled" aria-disabled="true">Disabled</a>
+            </li>
+
+        </ul>
+    </div>
     <div class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
         <div class="product"> <img src="https://images.pexels.com/photos/54203/pexels-photo-54203.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
             <ul class="d-flex align-items-center justify-content-center list-unstyled icons">

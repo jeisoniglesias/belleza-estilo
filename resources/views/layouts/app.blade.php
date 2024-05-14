@@ -2,68 +2,45 @@
 @push('styles')
 @endpush
 @section('content_base')
-<div class="container bg-white">
-    <nav class="navbar navbar-expand-md navbar-light bg-white">
-        <div class="container-fluid p-0"> 
-            <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="rounded-circle" alt="" style="width: 100px; height: auto;">
-            
-            <a class="navbar-brand text-uppercase fw-800" href="#">
-            <span class="border-red pe-2">New</span>Product</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav" aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="fas fa-bars"></span> </button>
-            <div class="collapse navbar-collapse" id="myNav">
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link active" aria-current="page" href="#">Todo</a>
-                    <a class="nav-link" href="#">Mujer</a>
-                    <a class="nav-link" href="#">Hombre</a>
-                    <a class="nav-link" href="#">Niños</a>
-                    <a class="nav-link" href="#">Niñas</a>
-                    <a class="nav-link" href="#">Accesorios</a>
-                    <a class="nav-link" href="#">Cosmetics</a>
-                    @guest
-                    @if (Route::has('login'))
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    @endif
+<style>
+    .filter-v1 {
+        background-color: rgba(255, 255, 255, 0.6);
+        backdrop-filter: saturate(.8);
+        -webkit-backdrop-filter: saturate(.8);
+    }
 
-                    @if (Route::has('register'))
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    @endif
-                    @else
+    .filter-v2 {
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: sature(1.8);
+        -webkit-backdrop-filter: sature(1.8);
+    }
+</style>
+<nav class="navbar  navbar-expand-lg pb-0">
+    <div class="container mb-0">
 
-                    <div class="dropdown nav-link ">
-                        <button class="btn  border-0 p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ Auth::user()->name }}
-                            <span class="bi bi-chevron-down ml-1 mb-2 small"></span>
+        <x-logo-home />
 
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ route('home') }}">
-                                    {{ __('Dashboard') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    @endguest
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="offcanvas offcanvas-end filter-v2" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" >
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Belleza & Estilo Contigo
+                    <i class="bi bi-emoji-wink"></i>
 
-                </div>
-
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <x-home.navbar />
             </div>
         </div>
-    </nav>
-    <div class="container">
-        @yield('content')
-
-
 
     </div>
+</nav>
+<div class="container mt-0 pt-0">
+    @yield('content')
 </div>
 
 @endsection
