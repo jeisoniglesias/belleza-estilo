@@ -15,7 +15,7 @@
         <article class="p-4 rounded shadow-sm border-left mb-4">
             <a href="#" class="d-flex align-items-center">
                 <span class="bi bi-person h5"></span>
-                <h5 class="ms-2">Customers</h5>
+                <h5 class="ms-2">Holii</h5>
             </a>
         </article>
     </div>
@@ -46,7 +46,7 @@
                     <tbody>
                         <tr class="bg-blue">
                             <td class="pt-2">
-                                <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="rounded-circle" alt="">
+                                <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="rounded-circle" alt="" style="width: 200px; height: auto;">
                                 <div class="pl-lg-5 pl-md-3 pl-1 name">Emilia Kollette</div>
                             </td>
                             <td class="pt-3 mt-1">25 Sep 2020</td>
@@ -59,7 +59,7 @@
                         </tr>
                         <tr class="bg-blue">
                             <td class="pt-2">
-                                <img src="https://images.pexels.com/photos/3765114/pexels-photo-3765114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="rounded-circle" alt="">
+                                <img src="https://images.pexels.com/photos/3765114/pexels-photo-3765114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="rounded-circle" alt="" style="width: 200px; height: auto;">
                                 <div class="pl-lg-5 pl-md-3 pl-1 name">Anny Adams</div>
                             </td>
                             <td class="pt-3">26 Sep 2020</td>
@@ -72,7 +72,7 @@
                         </tr>
                         <tr class="bg-blue">
                             <td class="pt-2">
-                                <img src="https://images.pexels.com/photos/3779448/pexels-photo-3779448.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="rounded-circle" alt="">
+                                <img src="https://images.pexels.com/photos/3779448/pexels-photo-3779448.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="rounded-circle" alt="" style="width: 200px; height: auto;">
                                 <div class="pl-lg-5 pl-md-3 pl-1 name">Arnold Linn</div>
                             </td>
                             <td class="pt-3">26 Sep 2020</td>
@@ -85,7 +85,7 @@
                         </tr>
                         <tr class="bg-blue">
                             <td class="pt-2">
-                                <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="rounded-circle" alt="">
+                                <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="rounded-circle" alt="" style="width: 200px; height: auto;">
                                 <div class="pl-lg-5 pl-md-3 pl-1 name">Josh Limosel</div>
                             </td>
                             <td class="pt-3">26 Sep 2020</td>

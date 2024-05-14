@@ -17,3 +17,4 @@ $iconClasses = $icon ?? 'bi-border-all';
     <span class="ms-2">{{ $slot }}</span>
     @endif
 </a>
+
