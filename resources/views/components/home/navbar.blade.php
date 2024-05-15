@@ -4,6 +4,8 @@
         @if (Route::has('login'))
         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
         @endif
+    </li>
+    <li class="nav-item">
 
         @if (Route::has('register'))
         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
