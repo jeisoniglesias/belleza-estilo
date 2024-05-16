@@ -97,11 +97,6 @@
     }
 </style>
 <div class="jumbotron jumbotron-fluid rounded bg-white border-0 shadow-sm  px-4 bg-danger">
-    @error('nombre')
-    <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }}</strong>
-    </span>
-    @enderror
     <div class="container">
         <div class="row w-100">
             <div class="col-8">
@@ -109,120 +104,15 @@
                 <p class="lead text-muted">Listado de categorias</p>
             </div>
             <div class="col-4">
-
+                <!--<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProduct">Add Product</button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProduct">Add Product</button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+-->
+                @livewire('tipos.categoria-formulario' )
             </div>
 
 
         </div>
     </div>
-
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($categorias as $categoria)
-            <tr>
-                <td data-label="">{{ $categoria->id }}</td>
-                <td data-label="Nombre">{{ $categoria->nombre }}</td>
-                <td data-label="Descripcion">{{ $categoria->descripcion }}</td>
-                <td data-label="">
-                    <a href="{{ route('categorias.edit', $categoria->id) }}" class="btn btn-primary btn-sm">
-                        <i class="fa fa-pencil"></i>
-                    </a>
-                    <a href="{{ route('categorias.destroy', $categoria->id) }}" class="btn btn-danger btn-sm">
-                        <i class="fa fa-trash"></i>
-                    </a>
-            </tr>
-            @endforeach
-
-        </tbody>
-    </table>
-
-    <form action="{{ route('categorias.store') }}" id="categoria-form" method="POST">
-        @csrf
-        <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control @error('nombre') is-invalid @enderror" id="nombre" name="nombre" aria-describedby="emailHelp">
-            @error('nombre')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-            <div id="nombreHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-            <label for="descripcion" class="form-label">Descripcion</label>
-            <input type="text" class="form-control" id="descripcion" name="descripcion" aria-describedby="emailHelp">
-            <div id="descripcionHelp" class="form-text">We'll never share your email with anyone else.</div>
-
-    </form>
 </div>
-<button type="submit" class="btn btn-primary" onclick="event.preventDefault();document.getElementById('categoria-form').submit();">Enviar</button>
-
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
-
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-
-    </div>
-</div>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('categorias.store') }}" id="myform" name="myform" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control @error('nombre') is-invalid @enderror" id="nombre" name="nombre" aria-describedby="emailHelp">
-                        @error('nombre')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                        <div id="nombreHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="descripcion" class="form-label">Descripcion</label>
-                        <input type="text" class="form-control" id="descripcion" name="descripcion" aria-describedby="emailHelp">
-                        <div id="descripcionHelp" class="form-text">We'll never share your email with anyone else.
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-primary" onclick="event.preventDefault();document.getElementById('myform').submit();">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-@if(session()->has('error'))
-<script>
-    $('#exampleModalLabel').modal('show');
-</script>
-@endif
-
 @endsection
