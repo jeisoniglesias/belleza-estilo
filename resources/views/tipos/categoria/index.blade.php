@@ -111,11 +111,50 @@
                 <!--
                 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Nueva Categoria</button>-->
                 @livewire('tipos.category-form' )
+
             </div>
 
 
         </div>
-    </div>
 
+    </div>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-sm">
+                <thead class="table-light">
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descipcion</th>
+                    <th scope="col" colspan="2"></th>
+                </thead>
+                <tbody>
+                    @foreach($categorias as $categoria)
+                    <tr>
+                        <th scope="row"> {{$categoria->id}} </th>
+                        <td> {{$categoria->nombre}} </td>
+                        <td> {{$categoria->descripcion}} </td>
+                        <td>
+                            <!--buton delete $categoria->id route controller categorias.delete not livewire-->
+
+                            <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-transparent">
+                                    <i class="bi bi-trash me-0 p-2"></i>
+                                </button>
+                            </form>
+
+
+
+                        </td>
+                        <td> @livewire('tipos.categoria-form-edit', $categoria ? ['categoria' => $categoria] : [])</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            {{ $categorias->links('vendor.pagination.bootstrap-5') }}
+
+        </div>
+    </div>
 </div>
 @endsection

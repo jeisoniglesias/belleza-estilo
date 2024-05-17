@@ -1,7 +1,6 @@
 <x-offcanvas title="Nueva Categoria" id="{{$idOff}}">
     <x-slot:button>
-        Nuvea categoria
-        <i class="bi bi-patch-plus-fill"></i>
+        <i class="bi bi-pencil-square me-0 p-2"></i>
         </x-slot>
 
         <x-slot:content>
@@ -20,14 +19,12 @@
                     </div>
                     <div class="col-12 mt-2">
                         <button type="button" class="btn btn-primary" wire:click="saveCategoria">
-                            add
+                            Actalizar
                         </button>
                     </div>
                 </div>
             </form>
         </x-slot:content>
-        <!--  <x-slot:boton>
-        <button slot="boton" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#formCategoria" aria-controls="formCategoria">Nueva Categoria</button>
-        </x-slot> -->
+
 
 </x-offcanvas>

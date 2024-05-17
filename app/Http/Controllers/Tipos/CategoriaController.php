@@ -16,7 +16,7 @@ class CategoriaController extends Controller
     public function index()
     {
         return view('tipos.categoria.index', [
-            'categorias' => Categoria::all()
+            'categorias' => Categoria::paginate(10)
         ]);
     }
 
@@ -68,6 +68,9 @@ class CategoriaController extends Controller
      */
     public function destroy(Categoria $categoria)
     {
-        //
+        $categoria = Categoria::findOrFail($categoria->id);
+        $categoria->delete();
+
+        return redirect()->route('categorias.index')->with('success', 'Categoria deleted successfully');
     }
 }

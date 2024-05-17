@@ -6,16 +6,17 @@ use App\Models\Tipos\Categoria;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 
-class CategoryForm extends Component
+class CategoriaFormEdit extends Component
 {
+    public $idOff = 'formCategoriaEdit';
 
-    public $idOff = 'formCategoria';
-
+    public $categoria;
 
     #[Validate('required', message: 'El nombre es requerido')]
     #[Validate('string', message: 'El nombre debe ser un texto')]
     #[Validate('min:4', message: 'El nombre  debe tener almenos :min caracteres')]
-    #[Validate('unique:categorias,nombre', message: 'El nombre ya existe')]
+    #[Validate('unique:categorias,nombre,{$this->id},id', message: 'El nombre ya existe')]
+
     public $nombre;
 
     #[Validate('string', message: 'La descripción debe ser un texto')]
@@ -25,9 +26,14 @@ class CategoryForm extends Component
 
     public function render()
     {
-        return view('livewire.tipos.category-form');
+        return view('livewire.tipos.categoria-form-edit');
     }
-
+    public function mount(Categoria $categoria)
+    {
+        $this->categoria = $categoria;
+        $this->nombre = $categoria->nombre;
+        $this->descripcion = $categoria->descripcion;
+    }
     //logic for component actions
     public function saveCategoria()
     {
@@ -41,8 +47,9 @@ class CategoryForm extends Component
         }
         $validatedData = $this->validate();
 
-        Categoria::create($validatedData);
-        $message = 'Categoría ' . $this->nombre . ' creada exitosamente';
+        $this->categoria->update($validatedData);
+
+        $message = 'Categoría ' . $this->nombre . ' actualizada exitosamente';
 
         $this->resetFields();
         //event
