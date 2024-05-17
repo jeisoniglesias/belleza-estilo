@@ -8,9 +8,12 @@ use Livewire\Attributes\Validate;
 
 class CategoryForm extends Component
 {
+    public $idOff = 'formCategoria';
+
     #[Validate('required', message: 'El nombre es requerido')]
     #[Validate('string', message: 'El nombre debe ser un texto')]
     #[Validate('min:4', message: 'El nombre  debe tener almenos :min caracteres')]
+    #[Validate('unique:categorias,nombre', message: 'El nombre ya existe')]
     public $nombre;
 
     #[Validate('string', message: 'La descripción debe ser un texto')]
@@ -27,6 +30,13 @@ class CategoryForm extends Component
     public function saveProduct()
     {
 
+        try {
+            //code...
+            $this->validate();
+        } catch (\Throwable $th) {
+            $this->dispatch('errorOffcanvas', ['offcanvasId' => $this->idOff]);
+            //dd($th->getMessage());
+        }
         $validatedData = $this->validate();
 
         Categoria::create($validatedData);
@@ -37,6 +47,7 @@ class CategoryForm extends Component
         $this->dispatch('closeOffcanvas', ['offcanvasId' => 'offcanvasRight']);
         session()->flash('success', $message);
         return redirect()->route('categorias.index');
+
         //Livewire::emit('closeOffcanvas', ['offcanvasId' => 'offcanvasRight']);
     }
 
