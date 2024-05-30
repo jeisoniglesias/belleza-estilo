@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-12">
                             <label for="categoria_id"> Categoria: </label>
-                            <select name="categoria_id" id="categoria_id" class="form-select" aria-label="Default select example">
+                            <select name="categoria_id" id="categoria_id" wire:model="categoria_id" class="form-select" aria-label="Default select example">
                                 <option selected>Open this select menu</option>
                                 @foreach ($categorias as $id => $nombre)
                                 <option value="{{$id}}"> {{$nombre}} </option>
@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-12 mt-2">
 
-                            <button type="button" class="btn btn-primary" wire:click="saveSubCategoria">
+                            <button type="button" class="btn btn-primary" wire:click="save">
                                 add
                             </button>
 

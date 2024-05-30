@@ -10,7 +10,7 @@
                 <p class="lead text-muted">Listado de Subsubcategorias</p>
             </div>
             <div class="col-12 col-sm-4">
-            @livewire('tipos.sub-categorias-create')
+                @livewire('tipos.sub-categorias-create')
 
             </div>
         </div>
@@ -41,10 +41,14 @@
                                 </form>
 
 
-
                             </td>
-                            <td> @livewire('tipos.sub-categorias-edit', $subsubcategoria ? ['subsubcategoria' => $subsubcategoria] : [])</td>
+                            <td>
+
+                                @livewire('tipos.sub-categorias-edit', $subcategoria ? ['subcategoria' => $subcategoria] : [])
+                            </td>
+
                         </tr>
+
                         @endforeach
                     </tbody>
                 </table>

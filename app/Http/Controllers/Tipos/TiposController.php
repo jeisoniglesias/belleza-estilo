@@ -22,7 +22,6 @@ class TiposController extends Controller
     }
     function indexSubCategorias()
     {
-        dd(SubCategorias::paginate(10));
         return view('tipos.subcategorias-index', [
             'subcategorias' => SubCategorias::paginate(10)
         ]);

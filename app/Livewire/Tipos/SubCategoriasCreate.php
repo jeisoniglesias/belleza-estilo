@@ -10,10 +10,11 @@ use Livewire\Attributes\Validate;
 class SubCategoriasCreate extends Component
 {
     public $idOff = 'formSubCategoria';
+
     #[Validate('required', message: 'El nombre es requerido')]
     #[Validate('string', message: 'El nombre debe ser un texto')]
     #[Validate('min:4', message: 'El nombre  debe tener almenos :min caracteres')]
-    #[Validate('unique:categorias,nombre', message: 'El nombre ya existe')]
+    #[Validate('unique:sub_categorias,nombre', message: 'El nombre ya existe')]
     public $nombre;
     #validaciones para categoria_id, debe existir en la tabla categorias, requerido
     #[Validate('required', message: 'La categoría es requerida')]
@@ -25,8 +26,9 @@ class SubCategoriasCreate extends Component
             'categorias' => Categoria::all()->pluck('nombre', 'id')
         ]);
     }
-    public function saveSubCategoria()
+    public function save()
     {
+
         try {
             $this->validate();
         } catch (\Throwable $th) {
