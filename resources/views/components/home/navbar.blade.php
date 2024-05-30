@@ -2,18 +2,18 @@
     @guest
     <li class="nav-item">
         @if (Route::has('login'))
-        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        <a class="nav-link my-2" href="{{ route('login') }}">{{ __('Login') }}</a>
         @endif
     </li>
     <li class="nav-item">
 
         @if (Route::has('register'))
-        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+        <a class="nav-link my-2" href="{{ route('register') }}">{{ __('Register') }}</a>
         @endif
     </li>
     @else
     <li class="nav-item dropdown nav-user">
-        <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link my-2 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ Auth::user()->name }}
             <span class="bi bi-chevron-down small p-1"></span>
         </a>
