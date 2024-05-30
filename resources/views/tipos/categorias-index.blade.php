@@ -99,11 +99,11 @@
 <div class="jumbotron jumbotron-fluid rounded bg-white border-0 shadow-sm  px-4 bg-danger">
     <div class="container">
         <div class="row w-100">
-            <div class="col-8">
+            <div class="col-12 col-sm-8">
                 <h1 class="display-4 mb-2 text-primary">Categorias</h1>
                 <p class="lead text-muted">Listado de categorias</p>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-sm-4" >
                 <!--<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProduct">Add Product</button>-->
 
 
