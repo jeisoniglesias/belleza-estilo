@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Tipos\CategoriaController;
+use App\Http\Controllers\Tipos\PublicTargetController;
 use App\Http\Controllers\Tipos\SubCategoriaController;
 
 Route::get('/', function () {
@@ -27,6 +28,12 @@ Route::group(['prefix' => 'tipos', 'middleware' => 'auth'], function () {
     Route::get('sub/categorias/{subCategoria}/edit', [SubCategoriaController::class, 'edit'])->name('sub.categorias.edit');
     Route::put('sub/categorias/{subCategoria}', [SubCategoriaController::class, 'update'])->name('sub.categorias.update');
     Route::delete('sub/categorias/{subCategoria}', [SubCategoriaController::class, 'destroy'])->name('sub.categorias.destroy');
+
+    Route::get('targets', [PublicTargetController::class, 'index'])->name('targets.index');
+    Route::post('targets', [PublicTargetController::class, 'store'])->name('targets.store');
+    Route::get('targets/{target}/edit', [PublicTargetController::class, 'edit'])->name('targets.edit');
+    Route::put('targets/{target}', [PublicTargetController::class, 'update'])->name('targets.update');
+    Route::delete('targets/{target}', [PublicTargetController::class, 'destroy'])->name('targets.destroy');
 });
 Route::get('profile', function () {
     return view('auth.profile');

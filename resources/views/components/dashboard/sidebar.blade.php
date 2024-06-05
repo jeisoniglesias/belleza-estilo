@@ -17,6 +17,9 @@
         <x-dashboard.sidebar-link :active="request()->routeIs('sub.categorias.index')" :href="route('sub.categorias.index')" :icon="'bi-bar-chart-steps'">
             SubCategorias
         </x-dashboard.sidebar-link>
+        <x-dashboard.sidebar-link :active="request()->routeIs('targets.index')" :href="route('targets.index')" :icon="'bi-bar-chart-steps'">
+            Publico
+        </x-dashboard.sidebar-link>
         <a href="# " class="list-group-item list-group-item-action  align-items-center border-bottom border-danger border-end-0 bg-transparent">
             <span class=""> {{ Auth::user()->name }}</span>
         </a>
