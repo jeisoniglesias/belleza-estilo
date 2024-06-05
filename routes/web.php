@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\Tipos\CategoriaController;
-use App\Http\Controllers\Tipos\TiposController;
-use App\Livewire\Tipos\CategoriaComponent;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Tipos\CategoriaController;
+use App\Http\Controllers\Tipos\SubCategoriaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,14 +20,13 @@ Route::group(['prefix' => 'tipos', 'middleware' => 'auth'], function () {
     Route::get('categorias/{categoria}/edit', [CategoriaController::class, 'edit'])->name('categorias.edit');
     Route::put('categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update');
     Route::delete('categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy');
-    /* 
-    Route::get('tipos', [TiposController::class, 'index'])->name('tipos.index');
-    Route::get('tipos/create', [TiposController::class, 'create'])->name('tipos.create');
-    Route::post('tipos', [TiposController::class, 'store'])->name('tipos.store');
-    Route::get('tipos/{tipo}', [TiposController::class, 'show'])->name('tipos.show');
-    Route::get('tipos/{tipo}/edit', [TiposController::class, 'edit'])->name('tipos.edit');
-    Route::put('tipos/{tipo}', [TiposController::class, 'update'])->name('tipos.update');
-    Route::delete('tipos/{tipo}', [TiposController::class, 'destroy'])->name('tipos.destroy'); */
+
+    Route::get('sub/categorias', [SubCategoriaController::class, 'index'])->name('sub.categorias.index');
+    Route::get('sub/categorias/create', [SubCategoriaController::class, 'create'])->name('sub.categorias.create');
+    Route::post('sub/categorias', [SubCategoriaController::class, 'store'])->name('sub.categorias.store');
+    Route::get('sub/categorias/{subCategoria}/edit', [SubCategoriaController::class, 'edit'])->name('sub.categorias.edit');
+    Route::put('sub/categorias/{subCategoria}', [SubCategoriaController::class, 'update'])->name('sub.categorias.update');
+    Route::delete('sub/categorias/{subCategoria}', [SubCategoriaController::class, 'destroy'])->name('sub.categorias.destroy');
 });
 Route::get('profile', function () {
     return view('auth.profile');
