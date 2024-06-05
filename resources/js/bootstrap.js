@@ -16,6 +16,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.$ = jQuery;
 window.bootstrap = bootstrap;
+//window.Alpine = Alpine
+
+//Alpine.start()
 
 
 /**

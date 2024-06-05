@@ -9,16 +9,14 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @stack('styles')
-    @livewireStyles
 
 </head>
 
-<body>
-    <div id="app">
+<body class="bg-light">
+    <div id="app" class="">
         @yield('content_base')
     </div>
     @stack('scripts')
-    @livewireScripts
 
 </body>
 

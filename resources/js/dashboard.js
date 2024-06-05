@@ -1,4 +1,5 @@
 $(document).ready(() => {
+  console.log('Dashboard JS Loaded');
   $('#open-sidebar').click(() => {
     // add class active on #sidebar
     $('#sidebar').addClass('active');
@@ -12,4 +13,12 @@ $(document).ready(() => {
     // show sidebar overlay
     $(this).addClass('d-none');
   });
+
+
+});
+///dom loaded wit jquery
+$(function() {
+  setTimeout(function () {
+    $("#alertColse").hide();
+  }, 5000);
 });

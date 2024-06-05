@@ -2,7 +2,7 @@
 @push('styles')@endpush
 @section('content_base')
 
-<div class="container-fluid">
+<div class="container-fluid h-100">
     <div class="row">
         <!-- sidebar -->
         <x-dashboard.sidebar />
@@ -17,12 +17,12 @@
             <!-- top nav -->
 
             <!-- main content -->
-            <main class="container-fluid pb-3 h-100">
-               
-                @yield('content')
+            <main class="main container">
+                <div class="jumbotron jumbotron-fluid rounded bg-white border-0 shadow-sm p-2">
+                    @yield('content')
+                </div>
             </main>
         </div>
     </div>
 </div>
-@endsection
-@push('scripts')@endpush
+@endsection @push('scripts')@endpush

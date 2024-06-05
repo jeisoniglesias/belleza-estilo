@@ -1,3 +1,15 @@
+html,
+body {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+
+.jumbotron {
+    height: 100% !important;
+}
 a:hover {
     text-decoration: none;
 }
@@ -29,5 +41,12 @@ a:hover {
     .sidebar.active {
         transform: translateX(0);
     }
+    .paginacion {
+        justify-content: end !important;
+    }
 }
 
+.center-div {
+    display: grid;
+    place-items: center;
+}
