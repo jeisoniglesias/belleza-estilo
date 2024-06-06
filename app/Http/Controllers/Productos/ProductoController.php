@@ -102,7 +102,6 @@ class ProductoController extends Controller
         $productId = $request->input('product_id');
         $quantity = $request->input('quantity');
         $product = Producto::find($productId);
-
         if (!$product) {
             return redirect()->back()->with('error', 'Producto no encontrado.');
         }

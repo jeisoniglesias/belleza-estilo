@@ -74,16 +74,16 @@
                     </div>
                     <form method="POST" action="{{ route('productos.cart',['product_id'=>$producto->id]) }}">
                         @csrf
-                        <div class="d-flex align-items-center mt-4 offers mb-1">
+                        <div class="container mt-4 offers mb-1">
                             <p>
                                 {{ $producto->descripcion }}
                             </p>
+                            <div class="container m-0 p-0">
 
-                            <div class="container">
                                 @if($producto->stock > 1)
                                 <div class="counter mt-2">
                                     <button class="btn btn-secondary" onclick="decrement(event,'{{ $producto->id }}')">-</button>
-                                    <input type="number" id="quantity-{{ $producto->id }}" name="quantity" value="1" min="1" max="{{ $producto->stock }}" readonly>
+                                    <input type="number" id="quantity-{{ $producto->id }}" name="quantity" value="1" min="1" max="{{ $producto->stock }}" readonly class="btn btn-outline-secondary">
                                     <button class="btn btn-secondary" onclick="increment(event,'{{ $producto->id }}', '{{ $producto->stock }}')">+</button>
                                 </div>
 
@@ -93,9 +93,9 @@
 
                         <div class="mt-3">
                             <button class="btn btn-dark mr-2" type="submit">
-                                ADD TO CART
+                                Agregar al carrito
                             </button>
-                            <button class="btn btn-success" type="button">BUY NOW</button>
+                            <button class="btn btn-success" type="button">Comprar</button>
                         </div>
                     </form>
                 </div>

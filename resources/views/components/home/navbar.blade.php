@@ -61,7 +61,7 @@
             $cart = session()->get('cart');
             @endphp
             @if($cart)
-            <div class="list-group list-group-flush">
+            <div class="list-group list-group-flush overflow-auto" style="max-height: 50vh;">
                 @foreach ($cart as $item)
                 <div class="list-group-item list-group-item-action  ">
                     <div class="row">
@@ -79,7 +79,7 @@
                                 <p class="mb-1">{{ $item['subcategoria'] }}</p>
                                 @endisset
 
-                                <small>And some small print.</small>
+                                <small>{{$item["price"]}}</small>
                             </div>
                         </div>
                     </div>
