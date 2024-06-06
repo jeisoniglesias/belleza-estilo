@@ -60,6 +60,7 @@
             @php
             $cart = session()->get('cart');
             @endphp
+            @if($cart)
             @foreach ($cart as $item)
             <div class="product">
                 <h4>{{ $item['name'] }}</h4>
@@ -71,6 +72,9 @@
                 <img src="{{ $item['photo'] }}" alt="{{ $item['name'] }}" class="img-thumbnail w-50 h-50">
             </div>
             @endforeach
+            @else
+            <p>No hay productos en el carrito</p>
+            @endif
         </div>
     </div>
 </div>
