@@ -57,6 +57,13 @@ Route::group(['prefix' => 'bodega', 'middleware' => 'auth'], function () {
     Route::put('productos/{producto}', [ProductoController::class, 'update'])->name('productos.update');
     Route::delete('productos/{producto}', [ProductoController::class, 'destroy'])->name('productos.destroy');
     Route::post(('producto/cart'), [ProductoController::class, 'addToCart'])->name('productos.cart');
+    //remove item cart
+    Route::delete('producto/cart/{producto}', [ProductoController::class, 'removeFromCart'])->name('productos.cart.remove');
+    // logic for invoice
+    Route::post('invoice', [ProductoController::class, 'invoice'])->name('productos.invoice');
+    //get invoiceAll
+    Route::get('invoice', [ProductoController::class, 'invoiceAll'])->name('productos.invoiceAll');
+    
 });
 Route::get('profile', function () {
     return view('auth.profile');

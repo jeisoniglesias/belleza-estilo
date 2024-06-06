@@ -58,11 +58,13 @@
         </div>
         <div class="toast-body">
             @php
+
             $cart = session()->get('cart');
             @endphp
             @if($cart)
             <div class="list-group list-group-flush overflow-auto" style="max-height: 50vh;">
                 @foreach ($cart as $item)
+
                 <div class="list-group-item list-group-item-action  ">
                     <div class="row">
                         <div class="col-sm-3">
@@ -79,7 +81,25 @@
                                 <p class="mb-1">{{ $item['subcategoria'] }}</p>
                                 @endisset
 
-                                <small>{{$item["price"]}}</small>
+                                <div class="container mt-0">
+                                    <div class="row">
+                                        <div class="col-6 ">
+                                            <form method="POST" action="{{ route('productos.cart.remove',$item['id']) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn bg-transparent fst-italic" type="submit">
+                                                    Eliminar
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <div class="col-6">
+                                            <form method="POST" action="{{ route('productos.invoice',['product_id' => $item['id'],'quantity'=>$item['quantity']]) }}">
+                                                @csrf
+                                                <button class="btn bg-transparent fst-italic" type="submit">Comprar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,8 +107,11 @@
 
                 @endforeach
             </div>
-
-
+            <div class="container text-center m-0 border-top">
+                <form action="{{route('productos.invoiceAll')}}" method="get">
+                    <button type="submit" class="btn btn-"><i class="bi bi-shop"></i></button>
+                </form>
+            </div>
             @else
             <p>No hay productos en el carrito</p>
             @endif

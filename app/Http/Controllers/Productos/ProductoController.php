@@ -111,6 +111,7 @@ class ProductoController extends Controller
             $cart[$productId]['quantity'] += $quantity;
         } else {
             $cart[$productId] = [
+                "id" => $product->id,
                 "name" => $product->nombre,
                 "quantity" => $quantity,
                 "subcategoria" => $product->subcategoria->nombre,
@@ -122,5 +123,46 @@ class ProductoController extends Controller
         session()->put('cart', $cart);
 
         return redirect()->route('store')->with('success', 'Producto añadido al carrito.');
+    }
+    public function removeFromCart(int $productId)
+    {
+
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$productId])) {
+            unset($cart[$productId]);
+            session()->put('cart', $cart);
+        }
+        return redirect()->route('store')->with('success', 'Producto eliminado del carrito.');
+    }
+    public function invoiceAll()
+    {
+        $cart = session()->get('cart', []);
+        $productos = Producto::all();
+        //valid if stock is available add to cart field named aviable and value depend of stock
+        foreach ($cart as $key => $item) {
+            $product = $productos->find($item['id']);
+            if ($product->stock < $item['quantity']) {
+                $cart[$key]['aviable'] = false;
+            } else {
+                $cart[$key]['aviable'] = true;
+            }
+
+            $cart[$key]["product"] = $product;
+        }
+        session()->put('cart', $cart);
+
+       
+        return view('pages.productos.invoiceAll', compact('cart'));
+    }
+    private function _isAviable()
+    {
+    }
+    function invoice(Request $request)
+    {
+        $data = $request->all();
+        $producto = Producto::find($data['product_id']);
+        $quantity = $data['quantity'];
+        return view('pages.productos.invoice', compact('producto', 'quantity'));
     }
 }
