@@ -6,16 +6,29 @@ use App\Http\Controllers\Controller;
 use App\Models\Tipos\Categoria;
 use App\Http\Requests\tipos\StoreCategoriaRequest;
 use App\Http\Requests\tipos\UpdateCategoriaRequest;
+use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index1()
     {
         return view('pages.tipos.categorias.index', [
             'categorias' => Categoria::paginate(8)
+        ]);
+    }
+    public function index(Request $request)
+    {
+        $query = Categoria::query();
+
+        if ($request->filled('search')) {
+            $query->where('nombre', 'like', '%' . $request->input('search') . '%');
+        }
+
+        return view('pages.tipos.categorias.index', [
+            'categorias' => $query->paginate(8)
         ]);
     }
 

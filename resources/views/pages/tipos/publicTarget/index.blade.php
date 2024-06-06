@@ -18,6 +18,12 @@
     <div class="container">
         <x:dashboard.alert />
 
+        <div class="m-2 py-2">
+            <form class="d-flex" role="search" action="{{ route('targets.index') }}" method="GET">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="{{ request()->input('search') }}">
+                <button class="btn btn-outline-success" type="submit" name="search" id="search">Search</button>
+            </form>
+        </div>
 
         <div class="collapse py-2" id="formCollapse">
             <div class="card">

@@ -20,7 +20,12 @@
     </div>
     <div class="container">
         <x:dashboard.alert />
-
+        <form method="GET" action="{{ route('categorias.index') }}" class="mb-3" role="search">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Buscar por nombre" >
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </form>
         <div class="table-responsive">
             <table class="table table-sm details border border-light-subtle mb-1 border-bottom border-light rounded">
                 <thead class="table-light ">

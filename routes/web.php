@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Productos\ProductoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Tipos\CategoriaController;
@@ -34,6 +35,14 @@ Route::group(['prefix' => 'tipos', 'middleware' => 'auth'], function () {
     Route::get('targets/{target}/edit', [PublicTargetController::class, 'edit'])->name('targets.edit');
     Route::put('targets/{target}', [PublicTargetController::class, 'update'])->name('targets.update');
     Route::delete('targets/{target}', [PublicTargetController::class, 'destroy'])->name('targets.destroy');
+});
+Route::group(['prefix' => 'bodega', 'middleware' => 'auth'], function () {
+    Route::get('productos/', [ProductoController::class, 'index'])->name('productos.index');
+    Route::get('productos/create', [ProductoController::class, 'create'])->name('productos.create');
+    Route::post('productos/', [ProductoController::class, 'store'])->name('productos.store');
+    Route::get('productos/{producto}/edit', [ProductoController::class, 'edit'])->name('productos.edit');
+    Route::put('productos/{producto}', [ProductoController::class, 'update'])->name('productos.update');
+    Route::delete('productos/{producto}', [ProductoController::class, 'destroy'])->name('productos.destroy');
 });
 Route::get('profile', function () {
     return view('auth.profile');

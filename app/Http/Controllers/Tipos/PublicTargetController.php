@@ -17,10 +17,18 @@ class PublicTargetController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $publicTarget = PublicTarget::paginate(8);
-        return $this->_index(compact('publicTarget'));
+        $search = $request->input('search');
+        $query = PublicTarget::query();
+
+        if ($search) {
+            $query->where('name', 'like', "%$search%");
+        }
+
+        $publicTarget = $query->paginate(8);
+
+        return $this->_index(compact('publicTarget', 'search'));
     }
 
 
