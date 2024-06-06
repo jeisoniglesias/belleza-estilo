@@ -24,7 +24,11 @@ $tagCardClass = "bg-red";
     <div class="product">
         <img src="{{ $producto->thumbnail }}" alt="">
         <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
-            <li class="icon"><span class="fas fa-expand-arrows-alt"></span></li>
+            <li class="icon">
+                <a href="{{route('productos.show',$producto)}}" class="btn bg-transparent">
+                    <span class="fas fa-expand-arrows-alt"></span>
+                </a>
+            </li>
             <li class="icon mx-3"><span class="far fa-heart"></span></li>
             <li class="icon"><span class="fas fa-shopping-bag"></span></li>
         </ul>

@@ -8,6 +8,7 @@ use App\Http\Requests\productos\UpdateProductoRequest;
 use App\Models\Productos\Producto;
 use App\Models\Tipos\PublicTarget;
 use App\Models\Tipos\SubCategorias;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
@@ -58,7 +59,7 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        //
+        return view('pages.productos.show', compact('producto'));
     }
 
     /**
@@ -94,5 +95,33 @@ class ProductoController extends Controller
         Storage::disk('public')->delete($producto->thumbnail);
         $producto->delete();
         return redirect()->route('productos.index')->with('success', 'Producto eliminado con éxito');
+    }
+
+    public function addToCart(Request $request)
+    {
+        $productId = $request->input('product_id');
+        $quantity = $request->input('quantity');
+        $product = Producto::find($productId);
+
+        if (!$product) {
+            return redirect()->back()->with('error', 'Producto no encontrado.');
+        }
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$productId])) {
+            $cart[$productId]['quantity'] += $quantity;
+        } else {
+            $cart[$productId] = [
+                "name" => $product->nombre,
+                "quantity" => $quantity,
+                "subcategoria" => $product->subcategoria->nombre,
+                "price" => $product->precio,
+                "photo" => $product->thumbnail
+            ];
+        }
+
+        session()->put('cart', $cart);
+
+        return redirect()->route('store')->with('success', 'Producto añadido al carrito.');
     }
 }

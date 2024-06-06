@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 Route::get('/', function (Request $request) {
     $subcategoria = null;
     $subCategorias = \App\Models\Tipos\SubCategorias::pluck('nombre', 'id');
+    $cart = session()->get('cart', []);
     $query = \App\Models\Productos\Producto::query();
     if ($request->filled('subcategoria')) {
         $subcategoria = $request->subcategoria;
@@ -19,7 +20,7 @@ Route::get('/', function (Request $request) {
 
     $productos = $query->with("subcategoria", "publicTarget")->paginate(8);
 
-    return view('welcome', compact('subCategorias', 'productos', 'subcategoria'));
+    return view('welcome', compact('subCategorias', 'productos', 'subcategoria', 'cart'));
 })->name('store');
 
 Auth::routes();
@@ -52,8 +53,10 @@ Route::group(['prefix' => 'bodega', 'middleware' => 'auth'], function () {
     Route::get('productos/create', [ProductoController::class, 'create'])->name('productos.create');
     Route::post('productos/', [ProductoController::class, 'store'])->name('productos.store');
     Route::get('productos/{producto}/edit', [ProductoController::class, 'edit'])->name('productos.edit');
+    Route::get('productos/{producto}', [ProductoController::class, 'show'])->name('productos.show');
     Route::put('productos/{producto}', [ProductoController::class, 'update'])->name('productos.update');
     Route::delete('productos/{producto}', [ProductoController::class, 'destroy'])->name('productos.destroy');
+    Route::post(('producto/cart'), [ProductoController::class, 'addToCart'])->name('productos.cart');
 });
 Route::get('profile', function () {
     return view('auth.profile');

@@ -43,8 +43,48 @@
     @endguest
     <li class="nav-item">
 
-        <a class="nav-link fs-2" href="#">
+        <button class="nav-link fs-2" id="liveToastBtn">
             <i class="bi bi-cart-check-fill"></i>
-        </a>
+        </button>
     </li>
+
 </ul>
+<div class="toast-container position-start bottom-0 end-0  p-3 " style="top:60%!important">
+
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+        <div class="toast-header">
+            <strong class="me-auto">Carrito de compras</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            @php
+            $cart = session()->get('cart');
+            @endphp
+            @foreach ($cart as $item)
+            <div class="product">
+                <h4>{{ $item['name'] }}</h4>
+                <p>Quantity: {{ $item['quantity'] ?? 'N/A' }}</p>
+                @isset($item['subcategoria'])
+                <p>Subcategory: {{ $item['subcategoria'] }}</p>
+                @endisset
+                <p>Price: ${{ $item['price'] }}</p>
+                <img src="{{ $item['photo'] }}" alt="{{ $item['name'] }}" class="img-thumbnail w-50 h-50">
+            </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toastTrigger = document.getElementById('liveToastBtn')
+        const toastLiveExample = document.getElementById('liveToast')
+
+        if (toastTrigger) {
+            const toastBootstrap =
+                bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+            toastTrigger.addEventListener('click', () => {
+                toastBootstrap.show()
+            })
+        }
+    });
+</script>

@@ -24,7 +24,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="offcanvas offcanvas-end filter-v2" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" >
+        <div class="offcanvas offcanvas-end filter-v2" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Belleza & Estilo Contigo
                     <i class="bi bi-emoji-wink"></i>
@@ -43,6 +43,10 @@
     @yield('content')
 </div>
 
+<script>
+
+</script>
 @endsection
+
 @push('scripts')
 @endpush
