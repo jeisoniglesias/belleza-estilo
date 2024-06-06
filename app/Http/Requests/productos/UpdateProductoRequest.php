@@ -30,6 +30,8 @@ class UpdateProductoRequest extends FormRequest
             'public_target_id' => 'nullable|exists:public_target,id',
             'urls_imagenes' => 'nullable|array',
             'urls_imagenes.*' => 'string|url',
+            'thumbnail' => 'nullable|image|max:2048',
+
         ];
     }
 }

@@ -66,7 +66,9 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        $subcategorias = SubCategorias::pluck('nombre', 'id');
+        $target = PublicTarget::pluck('name', 'id');
+        return view('pages.productos.edit', compact('producto', 'subcategorias', 'target'));
     }
 
     /**
@@ -74,7 +76,14 @@ class ProductoController extends Controller
      */
     public function update(UpdateProductoRequest $request, Producto $producto)
     {
-        //
+
+        $data = $request->all();
+        if ($request->hasFile('thumbnail')) {
+            Storage::disk('public')->delete($producto->thumbnail);
+            $data['thumbnail'] = $this->_saveImage($request->file('thumbnail'), $data['nombre']);
+        }
+        $producto->update($data);
+        return redirect()->route('productos.index')->with('success', 'Producto actualizado con éxito');
     }
 
     /**
@@ -82,6 +91,8 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        //
+        Storage::disk('public')->delete($producto->thumbnail);
+        $producto->delete();
+        return redirect()->route('productos.index')->with('success', 'Producto eliminado con éxito');
     }
 }

@@ -67,5 +67,10 @@
         </table>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        localStorage.removeItem('thumbnail');
 
+    });
+</script>
 @endsection
