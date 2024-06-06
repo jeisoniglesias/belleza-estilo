@@ -6,9 +6,20 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Tipos\CategoriaController;
 use App\Http\Controllers\Tipos\PublicTargetController;
 use App\Http\Controllers\Tipos\SubCategoriaController;
+use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (Request $request) {
+    $subcategoria = null;
+    $subCategorias = \App\Models\Tipos\SubCategorias::pluck('nombre', 'id');
+    $query = \App\Models\Productos\Producto::query();
+    if ($request->filled('subcategoria')) {
+        $subcategoria = $request->subcategoria;
+        $query->where('sub_categoria_id', $subcategoria);
+    }
+
+    $productos = $query->with("subcategoria", "publicTarget")->paginate(8);
+
+    return view('welcome', compact('subCategorias', 'productos', 'subcategoria'));
 })->name('store');
 
 Auth::routes();
