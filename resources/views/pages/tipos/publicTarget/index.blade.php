@@ -2,17 +2,7 @@
 
 @section('content')
 <div class="container ">
-      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-        <div class="toast-header">
-            <strong class="me-auto">Carrito de compras</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-          @foreach($cart as $item)
-            {{$item}}
-          @endforeach
-        </div>
-    </div>
+
     <div class="row border-bottom">
         <div class="col-12 col-sm-8">
             <h1 class="display-4 mb-2 text-primary">Publico</h1>
