@@ -61,22 +61,40 @@
             $cart = session()->get('cart');
             @endphp
             @if($cart)
-            @foreach ($cart as $item)
-            <div class="product">
-                <h4>{{ $item['name'] }}</h4>
-                <p>Quantity: {{ $item['quantity'] ?? 'N/A' }}</p>
-                @isset($item['subcategoria'])
-                <p>Subcategory: {{ $item['subcategoria'] }}</p>
-                @endisset
-                <p>Price: ${{ $item['price'] }}</p>
-                <img src="{{ $item['photo'] }}" alt="{{ $item['name'] }}" class="img-thumbnail w-50 h-50">
+            <div class="list-group list-group-flush">
+                @foreach ($cart as $item)
+                <div class="list-group-item list-group-item-action  ">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="{{ $item['photo'] }}" alt="{{ $item['name'] }}" class="img-thumbnail ">
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="row">
+
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ $item['name'] }}</h5>
+                                    <small> {{ $item['quantity'] ?? 'N/A' }}</small>
+                                </div>
+                                @isset($item['subcategoria'])
+                                <p class="mb-1">{{ $item['subcategoria'] }}</p>
+                                @endisset
+
+                                <small>And some small print.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @endforeach
             </div>
-            @endforeach
+
+
             @else
             <p>No hay productos en el carrito</p>
             @endif
         </div>
     </div>
+</div>
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
